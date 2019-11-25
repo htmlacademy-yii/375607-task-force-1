@@ -6,10 +6,7 @@
  * Time: 16:52
  */
 
-namespace HtmlAcademy\Models\ConvertersData\Sql;
-
-
-use HtmlAcademy\Models\ConvertersData\ConvertDataInterface;
+namespace HtmlAcademy\Models\ConvertersData;
 
 /**
  * Class ConvertDataFloatSql

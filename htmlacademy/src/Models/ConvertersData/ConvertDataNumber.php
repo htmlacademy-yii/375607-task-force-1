@@ -6,8 +6,7 @@
  * Time: 15:41
  */
 
-namespace HtmlAcademy\Models\ConvertersData\Sql;
-use HtmlAcademy\Models\ConvertersData\ConvertDataInterface;
+namespace HtmlAcademy\Models\ConvertersData;
 
 /**
  * Class ConvertDataNumber

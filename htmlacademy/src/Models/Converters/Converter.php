@@ -35,7 +35,7 @@ abstract class Converter
      * @param AbstractWriter $writer
      * @param array $data
      */
-    public function __construct(ReaderInterface $reader, AbstractWriter $writer, array $data )
+    public function __construct(ReaderInterface $reader, AbstractWriter $writer)
     {
 
         $this->reader = $reader;

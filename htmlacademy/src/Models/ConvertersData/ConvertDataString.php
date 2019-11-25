@@ -6,10 +6,7 @@
  * Time: 16:50
  */
 
-namespace HtmlAcademy\Models\ConvertersData\Sql;
-
-
-use HtmlAcademy\Models\ConvertersData\ConvertDataInterface;
+namespace HtmlAcademy\Models\ConvertersData;
 
 /**
  * Class ConvertDataStringSql
@@ -23,6 +20,6 @@ class ConvertDataString implements ConvertDataInterface
      */
     public function convert(string $data): string
     {
-        return '\'' . $data . '\'';
+        return $data;
     }
 }

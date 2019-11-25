@@ -38,6 +38,7 @@ class SqlWriter extends AbstractWriter
      */
     public function __construct($dirName, $fileName, $tableName, array $typeColumns = array())
     {
+        $this->link = mysqli_connect('docker-machine', 'pinba', '', 'pinba', 3307);
         parent::__construct($dirName, $fileName, $tableName, $typeColumns);
 
         $this->setFilePath();
@@ -75,6 +76,13 @@ class SqlWriter extends AbstractWriter
      */
     public function write(array $columns, array $row): void
     {
+        foreach ($row as &$item) {
+            // т.к. мы знаем, что все кроме строк уже пришло нормализованное - строки мы экраниеруем
+            if (is_string($item)) {
+                // в идеале экранировать нужно через родную функцию mysqliConvertDataString
+                $item = mysqli_real_escape_string($this->link, $item);
+            }
+        }
         $this->fileToWrite->fwrite('INSERT INTO' . ' ' . $this->tableName . '(`' . implode('`,`', $columns) . '`) VALUES (' . implode(',', $row) . ');' . PHP_EOL);
     }
 

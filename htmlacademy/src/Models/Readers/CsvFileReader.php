@@ -53,9 +53,12 @@ class CsvFileReader extends AbstractFileReader implements ReaderInterface
      */
     public function getLine(): iterable
     {
+        // чтобы пропустить заголовок, иначе метод работает только 1 раз
+        $this->fileObject->rewind();
+        $this->fileObject->fgetcsv();
+
         while (!$this->fileObject->eof()) {
             yield $this->fileObject->fgetcsv();
         }
-
     }
 }
